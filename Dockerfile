@@ -12,7 +12,6 @@ RUN apt-get update && apt-get install -y \
     wget \
     libssl-dev \
     libssh2-1-dev \
-    libssl1.0.0 \
     libxml2-dev \
     libssl-dev
 
