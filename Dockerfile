@@ -31,13 +31,14 @@ RUN apt-get update && apt-get install -y \
     build-essential
     
 RUN apt-get install -y software-properties-common
-#RUN add-apt-repository -y ppa:ubuntugis/ubuntugis-unstable
+RUN add-apt-repository -y ppa:ubuntugis/ubuntugis-unstable
 RUN apt-get update
 RUN apt-get install -y libudunits2-dev libgdal-dev libgeos-dev 
 
 
-RUN sudo apt-add-repository -y ppa:webupd8team/java \
-&& apt-get update && echo "oracle-java8-installer shared/accepted-oracle-license-v1-1 select true" | sudo debconf-set-selections && apt-get install -y oracle-java8-installer \
+RUN add-apt-repository "deb http://ppa.launchpad.net/webupd8team/java/ubuntu xenial main" \
+&& apt-get update \
+&& apt-get install oracle-java8-installer \
 && R -e "Sys.setenv(JAVA_HOME = '/usr/lib/jvm/java-8-oracle/jre')"
 RUN sudo java -version
 
