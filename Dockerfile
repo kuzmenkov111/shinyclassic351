@@ -31,7 +31,7 @@ RUN apt-get update && apt-get install -y \
     build-essential
     
 RUN apt-get install -y software-properties-common
-RUN add-apt-repository -y ppa:ubuntugis/ubuntugis-unstable
+#RUN add-apt-repository -y ppa:ubuntugis/ubuntugis-unstable
 RUN apt-get update
 RUN apt-get install -y libudunits2-dev libgdal-dev libgeos-dev 
 
