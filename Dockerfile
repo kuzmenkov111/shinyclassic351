@@ -36,7 +36,7 @@ RUN apt-get update
 RUN apt-get install -y libudunits2-dev libgdal-dev libgeos-dev 
 
 
-RUN add-apt-repository "deb http://ppa.launchpad.net/webupd8team/java/ubuntu xenial main" \
+RUN sudo add-apt-repository "deb http://ppa.launchpad.net/webupd8team/java/ubuntu xenial main" \
 && apt-get update \
 && apt-get install oracle-java8-installer \
 && R -e "Sys.setenv(JAVA_HOME = '/usr/lib/jvm/java-8-oracle/jre')"
