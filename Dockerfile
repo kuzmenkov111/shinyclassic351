@@ -1,54 +1,15 @@
-FROM rocker/r-ver:3.5.1
-
-RUN apt-get update && apt-get install -y \
-    sudo \
-    gdebi-core \
-    pandoc \
-    pandoc-citeproc \
-    libcurl4-gnutls-dev \
-    libcairo2-dev \
-    libxt-dev \
-    xtail \
-    wget \
-    libssl-dev \
-    libssh2-1-dev \
-    libxml2-dev \
-    libssl-dev
-
-# system library dependency for the euler app
-RUN apt-get update && apt-get install -y \
-    libmpfr-dev \
-    gfortran \
-    aptitude \
-    libgdal-dev \
-    libproj-dev \
-    g++ \
-    libicu-dev \
-    libpcre3-dev\
-    libbz2-dev \
-    liblzma-dev \
-    libnlopt-dev \
-    build-essential
+FROM rocker/shiny:3.5.1
     
-RUN apt-get install -y software-properties-common
+#RUN apt-get install -y software-properties-common
 #RUN add-apt-repository -y ppa:ubuntugis/ubuntugis-unstable
-RUN apt-get update
-RUN apt-get install -y libudunits2-dev libgdal-dev libgeos-dev 
+#RUN apt-get update
+#RUN apt-get install -y libudunits2-dev libgdal-dev libgeos-dev 
 
 
-RUN sudo apt-get install -y default-jdk \
-&& R -e "Sys.setenv(JAVA_HOME = 'usr/lib/jvm/java-8-openjdk-amd64/jre')"
-RUN sudo java -version
+#RUN sudo apt-get install -y default-jdk \
+#&& R -e "Sys.setenv(JAVA_HOME = 'usr/lib/jvm/java-8-openjdk-amd64/jre')"
+#RUN sudo java -version
 
-# Download and install shiny server
-RUN wget --no-verbose https://download3.rstudio.org/ubuntu-14.04/x86_64/VERSION -O "version.txt" && \
-    VERSION=$(cat version.txt)  && \
-    wget --no-verbose "https://download3.rstudio.org/ubuntu-14.04/x86_64/shiny-server-$VERSION-amd64.deb" -O ss-latest.deb && \
-    gdebi -n ss-latest.deb && \
-    rm -f version.txt ss-latest.deb && \
-    . /etc/environment && \
-    R -e "install.packages(c('shiny', 'rmarkdown'), repos='$MRAN')" && \
-    cp -R /usr/local/lib/R/site-library/shiny/examples/* /srv/shiny-server/
 
 # basic shiny functionality
 RUN R -e "install.packages('binom', repos='https://cran.r-project.org/')" \
