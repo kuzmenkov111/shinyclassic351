@@ -1,14 +1,14 @@
 FROM rocker/shiny:3.5.1
     
-#RUN apt-get install -y software-properties-common
-#RUN add-apt-repository -y ppa:ubuntugis/ubuntugis-unstable
-#RUN apt-get update
-#RUN apt-get install -y libudunits2-dev libgdal-dev libgeos-dev 
+RUN apt-get install -y software-properties-common
+RUN add-apt-repository -y ppa:ubuntugis/ubuntugis-unstable
+RUN apt-get update
+RUN apt-get install -y libudunits2-dev libgdal-dev libgeos-dev libxml2-dev
 
 
-#RUN sudo apt-get install -y default-jdk \
-#&& R -e "Sys.setenv(JAVA_HOME = 'usr/lib/jvm/java-8-openjdk-amd64/jre')"
-#RUN sudo java -version
+RUN sudo apt-get install -y default-jdk \
+&& R -e "Sys.setenv(JAVA_HOME = 'usr/lib/jvm/java-8-openjdk-amd64/jre')"
+RUN sudo java -version
 
 
 # basic shiny functionality
