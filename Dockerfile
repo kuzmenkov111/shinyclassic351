@@ -6,8 +6,8 @@ RUN apt-get update
 RUN apt-get install -y libudunits2-dev libgdal-dev libgeos-dev libxml2-dev
 
 
-RUN sudo apt-get install -y default-jdk \
-&& R -e "Sys.setenv(JAVA_HOME = 'usr/lib/jvm/java-8-openjdk-amd64/jre')"
+RUN sudo apt-get install -y default-jdk #\
+#&& R -e "Sys.setenv(JAVA_HOME = 'usr/lib/jvm/java-8-openjdk-amd64/jre')"
 RUN sudo java -version
 
 
@@ -80,7 +80,7 @@ RUN R -e "install.packages('binom', repos='https://cran.r-project.org/')" \
 && R -e "install.packages('rgdal', repos='https://cran.r-project.org/')" \
 && R -e "install.packages('mapview', repos='https://cran.r-project.org/')" \
 && R CMD javareconf \
-&& R -e "Sys.setenv(JAVA_HOME = 'usr/lib/jvm/java-8-openjdk-amd64/jre'); install.packages('rJava', repos='https://cran.r-project.org/')" \
+&& R -e "install.packages('rJava', repos='https://cran.r-project.org/')" \
 && R -e "install.packages('mailR', repos='https://cran.r-project.org/')" \
 && R -e "install.packages('RPostgres', repos='https://cran.r-project.org/')" \
 && R -e "install.packages('stringi', repos='https://cran.r-project.org/')" \
