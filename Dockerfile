@@ -6,7 +6,10 @@ RUN apt-get update
 RUN apt-get install -y libudunits2-dev libgdal-dev libgeos-dev libxml2-dev
 
 
-RUN sudo apt-get install -y default-jdk #\
+RUN sudo apt-get install -y default-jdk \
+liblzma-dev \
+libicu-dev \
+libbz2-dev
 #&& R -e "Sys.setenv(JAVA_HOME = 'usr/lib/jvm/java-8-openjdk-amd64/jre')"
 RUN sudo java -version
 
