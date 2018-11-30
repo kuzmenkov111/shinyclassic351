@@ -113,5 +113,5 @@ VOLUME /srv/shiny-server
 
 
 COPY shiny-server.sh /usr/bin/shiny-server.sh
-
+RUN sudo chmod +x /usr/bin/shiny-server.sh
 CMD ["/usr/bin/shiny-server.sh"]
