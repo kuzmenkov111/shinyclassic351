@@ -1,4 +1,4 @@
-FROM rocker/shiny:3.5.1
+FROM kuzmenkov/shinyclassicbase
     
 RUN apt-get install -y software-properties-common
 #RUN add-apt-repository -y ppa:ubuntugis/ubuntugis-unstable
